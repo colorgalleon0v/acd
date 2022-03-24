@@ -1,9 +1,11 @@
-version: 2.1
+version: 2
 jobs:
-  my-job:
-    machine:
-      image: ubuntu-2004:202201-02
-    steps:
+ build:
+   machine: 
+     image: ubuntu-2004:202201-02
+   parallelism: 1
+   steps:
+     - checkout
      - run: |
          sudo apt-get update
          sudo apt-get install unzip -y
